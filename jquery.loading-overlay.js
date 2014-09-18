@@ -11,9 +11,9 @@
         show : function(config){
             var conf = $.extend({}, defaultConfig, config);
             return this.each(function(){
-                var container = $(this);
-                var overlay   = $('<div>');
-                var image     = $('<img>');
+                var container = $(this),
+                    overlay   = $('<div><br><span>'+conf.text+'</span></div>'),
+                    image     = $('<img>');
 
                 container.css('position', 'relative');
                 overlay.css({
@@ -25,7 +25,8 @@
                     opacity         : conf.opacity,
                     zIndex          : conf.zIndex,
                     backgroundColor : '#000000',
-                    textAlign       : 'center'
+                    textAlign       : 'center',
+                    color           : '#ffffff'
                 }).addClass('xsanisty-loading-overlay');
 
                 image.attr('src', conf.image).css({
@@ -34,7 +35,7 @@
                     marginTop   : (container.height()/2) - (conf.imageHeight/2)
                 });
 
-                overlay.append(image);
+                overlay.prepend(image);
                 container.append(overlay);
 
             });
