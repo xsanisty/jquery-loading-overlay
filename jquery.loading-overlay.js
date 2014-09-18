@@ -11,32 +11,35 @@
         show : function(config){
             var conf = $.extend({}, defaultConfig, config);
             return this.each(function(){
-                var container = $(this),
-                    overlay   = $('<div><br><span>'+conf.text+'</span></div>'),
-                    image     = $('<img>');
+                var container   = $(this),
+                    overlay     = $('<div><br><span>'+conf.text+'</span></div>'),
+                    image       = $('<img>'),
+                    overlayExist= container.find('.xsanisty-loading-overlay').length;
 
-                container.css('position', 'relative');
-                overlay.css({
-                    position        :'absolute',
-                    top             : 0,
-                    left            : 0,
-                    height          : container.outerHeight(),
-                    width           : container.outerWidth(),
-                    opacity         : conf.opacity,
-                    zIndex          : conf.zIndex,
-                    backgroundColor : '#000000',
-                    textAlign       : 'center',
-                    color           : '#ffffff'
-                }).addClass('xsanisty-loading-overlay');
+                if(overlayExist === 0){
+                    container.css('position', 'relative');
+                    overlay.css({
+                        position        :'absolute',
+                        top             : 0,
+                        left            : 0,
+                        height          : container.outerHeight(),
+                        width           : container.outerWidth(),
+                        opacity         : conf.opacity,
+                        zIndex          : conf.zIndex,
+                        backgroundColor : '#000000',
+                        textAlign       : 'center',
+                        color           : '#ffffff'
+                    }).addClass('xsanisty-loading-overlay');
 
-                image.attr('src', conf.image).css({
-                    zIndex      : conf.zIndex+10,
-                    height      : conf.imageHeight,
-                    marginTop   : (container.height()/2) - (conf.imageHeight/2)
-                });
+                    image.attr('src', conf.image).css({
+                        zIndex      : conf.zIndex+10,
+                        height      : conf.imageHeight,
+                        marginTop   : (container.height()/2) - (conf.imageHeight/2)
+                    });
 
-                overlay.prepend(image);
-                container.append(overlay);
+                    overlay.prepend(image);
+                    container.append(overlay);
+                }
 
             });
         },
