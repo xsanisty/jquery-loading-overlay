@@ -64,3 +64,17 @@ defaultConfig = {
     text        : ''
 };
 ```
+
+You can pass the configuration option when invoking the ```show``` method
+
+```javascript
+$('#selector').loader({
+    //your configuration here
+});
+
+or
+
+$('#selector').loader('show', {
+    //your configuration here
+});
+```
