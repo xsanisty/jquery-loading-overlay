@@ -1,0 +1,26 @@
+<html>
+<head>
+    <title>jQuery loading overlay | Implementation sample</title>
+</head>
+<body>
+    <h1>div#div1</h1>
+    <button id="display-loading">Display loading indicator</button>
+    <button id="hide-loading">Hide loading Indicator</button>
+    <br>
+    <div id="div1" style="height: 400px; width: 400px; border: solid 1px #ddd"></div>
+
+    <script src="jquery-1.9.1.min.js"></script>
+    <script src="../jquery.loading-overlay.js"></script>
+    <script>
+        $('#display-loading').click(function(){
+            $('#div1').loader({
+                image : '../image/loader.gif'
+            });
+        });
+
+        $('#hide-loading').click(function(){
+            $('#div1').loader('hide');
+        });
+    </script>
+</body>
+</html>
