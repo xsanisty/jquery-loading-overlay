@@ -3,7 +3,7 @@
 jQuery loading overlay is a simple helper function wrapped as jQuery plugin for displaying loading
 indicator overlaid to the element where this plugin is initiated.
 
-code sample below will clearly dercribe it
+code sample below will clearly describe it
 
 ```javascript
 $('#somediv').loader();
